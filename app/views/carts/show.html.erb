@@ -3,7 +3,12 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+<% if cart.size == 0 %>
+  <p>You dont have any hipster shit in your cart!</p>
+  <br>
+  <P>Click here to be more hipster <%= link_to 'Home', :root %></P>
 
+<% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -33,6 +38,10 @@
     </table>
   </div>
 
+
+
+
+
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -49,5 +58,6 @@
       <% end %>
     </div>
   </div>
+   <% end %>
 
 </section>
