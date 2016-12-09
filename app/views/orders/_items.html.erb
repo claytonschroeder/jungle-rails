@@ -1,0 +1,27 @@
+<%# quantity = details['quantity'].to_i %>
+
+  <tr>
+    <td>
+      <!-- line product.image here -->
+      <%= image_tag line_item.product.image.tiny %>
+    </td>
+    <td>
+      <!-- line product.name here -->
+      <h4><%= line_item.product.name %></h4>
+      <br>
+      <!-- line product.description here -->
+      <p><%= line_item.product.description %></p>
+    </td>
+    <td>
+      <!-- line product.price here -->
+      <%= line_item.product.price %>
+    </td>
+    <td>
+      <!-- item quantity here -->
+      <%= line_item.quantity %>
+    </td>
+    <td>
+      <!-- itme total price here -->
+      <%= line_item.product.price * line_item.quantity %>
+    </td>
+  </tr>
