@@ -48,9 +48,7 @@
     <h5>Review Section</h5>
       <div class="col-sm-8">
         <dl class="dl-horizontal">
-          <% @product.reviews.each do |review| %>
-            <dd><%= render partial: 'review', object: review %></dd>
-          <% end %>
+            <dd><%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %></dd>
         </dl>
       </div>
     </div>
