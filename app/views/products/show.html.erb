@@ -30,7 +30,7 @@
 
 
 
-
+    <% if current_user %>
     <div class="form-inline">
       <h3>Write a review</h3>
           <%= form_for ([@product, @review]) do |f| %>
@@ -39,6 +39,7 @@
             <%= f.submit "Create" %>
           <% end %>
     </div>
+    <% end %>
 
 
 
@@ -47,8 +48,9 @@
     <div class="row">
     <h5>Review Section</h5>
       <div class="col-sm-8">
-        <dl class="dl-horizontal">
+        <dl class="jumbotron">
             <dd><%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %></dd>
+
         </dl>
       </div>
     </div>
