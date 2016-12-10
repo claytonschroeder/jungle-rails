@@ -31,13 +31,14 @@
 
 
 
-    <form class="form-inline">
+    <div class="form-inline">
+      <h3>Write a review</h3>
           <%= form_for ([@product, @review]) do |f| %>
             <%= f.text_area :description %>
             <%= f.select :rating, [["Not Hipster", 1], ["Kinda Hipster", 2], ["Hipish", 3], ["Hipster", 4], ["So hip", 5]] %>
             <%= f.submit "Create" %>
           <% end %>
-    </form>
+    </div>
 
 
 
