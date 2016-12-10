@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :review, only: [:create]
+  end
+
   resources :categories, only: [:index, :show]
+
 
   resource :cart, only: [:show] do
     put    :add_item
