@@ -10,13 +10,45 @@
       <br>
     </p>
 
-    <p>
-    Item!!!!!
-      <%= @item %>
-    <br>
-    Product!!!!
-      <%= @product %>
-    </p>
+
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- loop through _items here -->
+          <% @order.line_items.each do |line_item| %>
+            <%= render 'items', line_item: line_item %>
+          <% end %>
+
+
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+
+          <!-- display order total here -->
+          <%= @order.total %>
+
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+
+
     <p>Thanks for joining the Vancouver Hipster collective, and have a bitchin cool day you awsome hipster you!</p>
   </body>
 </html>

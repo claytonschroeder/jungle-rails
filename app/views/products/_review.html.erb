@@ -13,7 +13,7 @@
 <%= review.rating %>
 </dd>
   <% if current_user && current_user.id == review.user.id %>
-    <dd><%= link_to 'Delete Review', [review.product, review],
+    <dd><%= button_to 'Delete Review', [review.product, review],
       method: :delete,
       data: { confirm: 'Are you sure?' } %></dd>
   <% end %>
