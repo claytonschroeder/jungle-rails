@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
+    @user = User.find_by(:id => session[:user_id])
     @order = Order.find(params[:id])
     @item = LineItem.find_by(:order_id => (params[:id]))
     @product = Product.find_by(:id => @item.product_id)
