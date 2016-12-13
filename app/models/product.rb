@@ -7,17 +7,17 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   validates :name, presence: true
-  validates :price, presence: true
-  validates :quantity, presence: true
+  validates :price_cents, presence: true, numericality: true
+  validates :quantity, presence: true, numericality: true
   validates :category, presence: true
 
 
   def average_review
     total = 0
-    self.reviews.each do |review|
+    reviews.each do |review|
       total = total + review.rating
     end
-    total / self.reviews.count.to_f
+    total / reviews.count.to_f
   end
 
 end
